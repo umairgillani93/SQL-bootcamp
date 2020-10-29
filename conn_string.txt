@@ -1,0 +1,12 @@
+engine = sqlalchemy.create_engine('mssql+pymssql://classic-soft:Mtbc@soft!@db-srv.isb.mtbc.com/mis_db', echo=False)
+engine2 = sqlalchemy.create_engine('mssql+pymssql://datascience:mtbc@1234@172.16.0.66/MIS_DB', echo=False)
+params = urllib.parse.quote_plus("DRIVER={ODBC Driver 17 for SQL Server};"
+                                 "SERVER=172.16.0.26;"
+                                 "DATABASE=MIS_DB;"
+                                 "UID=classic-soft;"
+                                 "PWD=Mtbc@soft!;"
+                                "APP=classicsoft")
+engine3 = sqlalchemy.create_engine('mssql+pyodbc:///?odbc_connect={}'.format(params))
+engine4 = sqlalchemy.create_engine('mssql+pymssql://datascience:mtbc@1234@db-srv1.isb.mtbc.com/mis_db', echo=False)
+# engine2 = pyodbc.connect(r'DRIVER={ODBC Driver 17 for SQL Server}; SERVER=DB-SRV.isb.mtbc.com; DATABASE=MIS_DB; UID=; PWD=',autocommit=True)
+print('engine created!')
